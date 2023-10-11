@@ -3,8 +3,8 @@ pragma solidity ^0.8.18;
 contract PiggyBank{
     address public owner;
     event Create(address owner, uint value);
-    event Receive(address sender, uint value);
-    event Withdraw(address owner, uint value);
+    event Receive(address indexed sender, uint value);
+    event Withdraw(address indexed owner, uint indexed value);
     modifier onlyOwner(){
         require(msg.sender == owner, "Withdraw Failed,Could withdraw by onwer.");
         _;
@@ -30,5 +30,5 @@ contract PiggyBank{
 // indexed : An indexed Event will be placed in Topics column.Topics include 4 bytes32 columns.
 //             The first column puts [keccak(name,.....)].The other column can contain anything and
 //             won't be encoded.
-
+// indexed will quicker then Non-indexed.
 // Non-indexed
