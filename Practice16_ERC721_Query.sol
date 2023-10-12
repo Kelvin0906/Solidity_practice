@@ -24,11 +24,11 @@ contract ERC721 is IERC721{
     mapping(address => uint256) _balances;
     mapping(uint256 => address) _owners;
 
-    function balanceOf(address owner) public  view returns (uint256 balance){
+    function balanceOf(address owner) public  view returns (uint256){
         require(owner != address(0),"ERROR: Address(0) can't be owner.");
         return _balances[owner];
     }
-    function ownerof(uint256 tokenId) public view returns (address owner){
+    function ownerof(uint256 tokenId) public view returns (address){
         address owner = _owners[tokenId];
         require(owner != address(0),"ERROR: Owner can't be address(0)");
         return owner;
