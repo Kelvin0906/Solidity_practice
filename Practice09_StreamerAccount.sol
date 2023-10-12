@@ -17,7 +17,7 @@ contract StreamerAccount{
     constructor() payable {
         owner = msg.sender;
     }
-    receive() external payable {
+    function donate() public payable {
         donorRecord[msg.sender] += msg.value;
         emit ReceiveEvent(msg.sender, msg.value);
     }
@@ -39,7 +39,7 @@ contract StreamerAccount{
         return balance;
     }
 
-    function GetdonorLevel() public view returns(string memory) {
+    function getdonorLevel() public view returns(string memory) {
         uint record = donorRecord[msg.sender];
         if (record > 10 ether){
             return "UR";
