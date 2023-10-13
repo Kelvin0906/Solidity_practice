@@ -20,7 +20,7 @@ interface IERC721Metadata{
 }
 
 interface IERC165 {
-    function supportsInterface(bytes4 interfaceId) external view retruns(bool);
+    function supportsInterface(bytes4 interfaceId) external view returns(bool);
 }
 
 interface IERC721 {
@@ -183,10 +183,10 @@ contract ERC721 is IERC721, IERC721Metadata, IERC165{
         _tokenURIs[tokenId] = URI;
     }
 
-    function supportsInterface(bytes4 interfaceId) public pure retruns(bool){
+    function supportsInterface(bytes4 interfaceId) public pure returns(bool){
         return interfaceId == type(IERC721).interfaceId ||
-            interfaced == type(IERC721Metadata).interfaceId ||
-            interfaced == type(IERC165).interfaceId;
+            interfaceId == type(IERC721Metadata).interfaceId ||
+            interfaceId == type(IERC165).interfaceId;
     
     }
 }
